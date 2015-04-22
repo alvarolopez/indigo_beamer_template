@@ -20,6 +20,8 @@
 
 \newbox\logobox
 \setbox\logobox\hbox{\includegraphics[height=\head@height]{images/logo_indigo.png}}
+\newbox\logobigbox
+\setbox\logobigbox\hbox{\includegraphics[width=90pt]{images/logo_indigo.png}}
 
 \defbeamertemplate*{headline}{indigo theme}{\hrule height0pt depth0pt}
 
@@ -42,7 +44,7 @@
             \vss\leavevmode\lower1pt\copy\logobox\par
         }
         \tiny\hskip2em \insertframesubtitle 
-\quad
+        \quad
         \hrulefill
         \strut
     \end{beamercolorbox}
@@ -58,23 +60,27 @@
     \end{beamercolorbox}
 }
 
-\setbeamercolor{alerted text}{fg=indigo!90!black}
+%\setbeamercolor{alerted text}{fg=indigo!90!black}
 \setbeamerfont{alerted text}{series=\bfseries}
 
 \setbeamertemplate{itemize item}{{\color{indigo}$\bullet$}}
 \setbeamertemplate{itemize subitem}{{\color{indigo}\textbf{--}}}
 \setbeamertemplate{itemize subsubitem}{{\color{indigo}$\scriptstyle\blacktriangleright$}}
 
-%\setbeamertemplate{background}{\ifnum\thepage=1\relax
-%\includegraphics[height=\paperheight]{images/back.png}\fi}
-%\setbeamertemplate{background}{\ifnum\thepage=1\relax
-%\includegraphics[height=\paperheight]{images/back.png}\fi}
 
 \newdimen\headP
 \setbeamertemplate{title page}{
     \begin{columns}
         \column{0.3\textwidth}
-            \copy\logobox
+            \centering
+            \copy\logobigbox\\
+            \vspace{-0.5em}\color{gray}{\tiny RIA-653549}
+            \vspace{5em}
+            
+            \includegraphics[width=0.7\textwidth]{images/csic.png}
+            \smallskip
+            
+            \includegraphics[width=0.7\textwidth]{images/ifca.png}
         \column{0.7\textwidth}
             \begin{beamercolorbox}[wd=0.7\paperwidth,dp=15pt,sep=2em]{titlepage}
                 \vbox{
@@ -90,10 +96,6 @@
                         \usebeamerfont{author}\insertauthor\par
                         \usebeamerfont{institute}\insertinstitute\par
                         \bigskip
-
-                        %\includegraphics[height=1cm]{images/csic.png}
-                        %\quad
-                        %\includegraphics[height=1cm]{images/ifca.png}
             
                     \end{raggedright}
                 }
