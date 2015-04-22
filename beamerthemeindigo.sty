@@ -1,0 +1,107 @@
+\ProvidesPackage{beamerthemeindigo}
+
+\mode<presentation>
+
+\newdimen\head@height
+\head@height=42pt
+
+\definecolor{links}{HTML}{2A1B81}
+\hypersetup{colorlinks,linkcolor=,urlcolor=links}
+
+\definecolor{indigo}{RGB}{7,44,98}
+\setbeamercolor{section in head}{bg=white,fg=indigo}
+\setbeamercolor{indigo in head}{bg=white,fg=indigo}
+\setbeamercolor{date in foot}{bg=white,fg=gray}
+\setbeamercolor{titlepage}{bg=indigo,fg=white}
+
+\setbeamertemplate{navigation symbols}{}
+
+\newbox\logobox
+\setbox\logobox\hbox{\includegraphics[height=\head@height]{images/logo_indigo.png}}
+
+\defbeamertemplate*{headline}{indigo theme}{\hrule height0pt depth0pt}
+
+\newdimen\headI
+
+\defbeamertemplate*{frametitle}{indigo theme} {
+    \nointerlineskip
+    \baselineskip=0pt
+    \lineskip=0pt
+    \parsep=0pt
+    \headI=\head@height
+    \advance\headI-17pt
+    \begin{beamercolorbox}[wd=\paperwidth,ht=\headI,dp=10pt,leftskip=\wd\logobox]{section in head}
+        \hskip0.5em\textbf{\insertframetitle\ }
+    \end{beamercolorbox}
+    \vspace{-1pt}
+    \begin{beamercolorbox}[wd=\paperwidth,ht=6pt,dp=3pt]{indigo in head}
+        \vbox to 6pt{
+            \hsize=\wd\logobox
+            \vss\leavevmode\lower1pt\copy\logobox\par
+        }
+            \tiny\hskip2em \insertframesubtitle \quad \strut
+    \end{beamercolorbox}
+}
+
+\defbeamertemplate*{footline}{indigo theme} {
+    \leavevmode
+    \begin{beamercolorbox}[wd=\paperwidth,ht=8ex,dp=0ex]{date in foot}
+        \hfill \tiny
+        {\flushleft \quad \today \hfill \url{} \quad \strut \\ 
+        \vspace{3pt} \quad INDIGO-Datacloud RIA-653549}
+        {\vspace{3pt} \hfill\hfill\hfill \insertframenumber \quad } % FIXME(aloga): missing url
+    \end{beamercolorbox}
+}
+
+\setbeamercolor{alerted text}{fg=indigo!90!black}
+\setbeamerfont{alerted text}{series=\bfseries}
+
+\setbeamertemplate{itemize item}{{\color{indigo}$\bullet$}}
+\setbeamertemplate{itemize subitem}{{\color{indigo}\textbf{--}}}
+\setbeamertemplate{itemize subsubitem}{{\color{indigo}$\scriptstyle\blacktriangleright$}}
+
+%\setbeamertemplate{background}{\ifnum\thepage=1\relax
+%\includegraphics[height=\paperheight]{images/back.png}\fi}
+%\setbeamertemplate{background}{\ifnum\thepage=1\relax
+%\includegraphics[height=\paperheight]{images/back.png}\fi}
+
+\newdimen\headP
+\setbeamertemplate{title page}{
+    \begin{columns}
+        \column{0.3\textwidth}
+            \copy\logobox
+        \column{0.7\textwidth}
+            \begin{beamercolorbox}[wd=0.7\paperwidth,dp=15pt,sep=2em]{titlepage}
+                \vbox{
+                    \begin{raggedright}
+                        \bigskip
+                
+                        \textbf{\Large INDIGO-Datacloud }
+                        \bigskip
+
+                        \textbf{\large\inserttitle}
+                        \bigskip
+
+                        \usebeamerfont{author}\insertauthor\par
+                        \usebeamerfont{institute}\insertinstitute\par
+                        \bigskip
+
+                        %\includegraphics[height=1cm]{images/csic.png}
+                        %\quad
+                        %\includegraphics[height=1cm]{images/ifca.png}
+            
+                    \end{raggedright}
+                }
+            \end{beamercolorbox}
+    \end{columns}
+    
+    \advance\hsize\beamer@rightmargin
+    
+%    \hfill 
+%    \vspace{2em}
+%    \includegraphics[height=0.5cm]{images/e-infra.png}
+%    \quad
+%    \includegraphics[height=0.5cm]{images/eu.png}
+%    \quad\strut
+
+}

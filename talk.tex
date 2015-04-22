@@ -1,21 +1,19 @@
 \documentclass{beamer}
 
-\usetheme{egee}
+\usetheme{indigo}
 
 \begin{document}
 
 \title{Presentation title goes here and it should break into several lines}
-\author{Fulano Lopez\\
-fulano@example.org \\~ 
+\author[F.Lopez]{Fulano Lopez \inst{1}\\
+fulano@example.org \\~
 }
-%\date{
-%%% leave the following line alone
-%   {\flushleft \quad \today \\ \vspace{3pt}
-%   \quad EGI-InSPIRE RI-261323}  
-%%% edit the next line
-%    \hfill\hfill\hfill Conference name
-%}
 
+\institute[foo] % (optional, but mostly needed)
+{
+    \inst{1}%
+    Foo Institute
+}
 
 \begin{frame}
     \maketitle
@@ -23,7 +21,8 @@ fulano@example.org \\~
 
 
 \begin{frame}[fragile]
-    \frametitle{Frame Title goes here}
+    \frametitle{Frame title is here}
+    \framesubtitle{Frame subtitle is here (may be empty)}
     Content goes here.
 \end{frame}
 
