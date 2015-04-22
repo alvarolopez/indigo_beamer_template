@@ -2,6 +2,8 @@
 
 \mode<presentation>
 
+\def\hrulefill{\leavevmode\leaders\hrule height 4pt\hfill\kern\z@}
+
 \newdimen\head@height
 \head@height=42pt
 
@@ -39,7 +41,10 @@
             \hsize=\wd\logobox
             \vss\leavevmode\lower1pt\copy\logobox\par
         }
-            \tiny\hskip2em \insertframesubtitle \quad \strut
+        \tiny\hskip2em \insertframesubtitle 
+\quad
+        \hrulefill
+        \strut
     \end{beamercolorbox}
 }
 
